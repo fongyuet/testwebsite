@@ -1,12 +1,129 @@
 <html>
     <head>
         <title> P2P Test Drive Website </title>
-        <style type = "text/css">
+<style type = "text/css">
+    html { 
+  background: url('P2Pnetwork.png') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
-        </style>
+</style>
 
-        <body>
-            <p> Yo </p>
-        </body>
-    </head>
+<script type = "text/javascript">
+
+var Keys = {
+    up: false,
+    down: false,
+    left: false,
+    right: false
+};
+
+var box = null;
+
+function init() {
+    box = document.getElementById("Car");
+    box.style.position = "relative";
+    box.style.left = "0px";
+    box.style.top = "0px";
+    box.style.height = "75px";
+}
+    let modifier = 1;
+
+    window.onkeydown = function(e) {
+                var key_code = e.which || e.keyCode;
+                e.preventDefault()
+                switch (key_code) {
+                    case 65: //left arrow key
+                        Keys.left = true;
+                        break;
+                    case 87: //Up arrow key
+                        Keys.up = true;
+                        break;
+                    case 68: //right arrow key
+                        Keys.right = true;
+                        break;
+                    case 83: //down arrow key
+                        Keys.down = true;
+                        break;
+                }
+            };
+
+            window.onkeyup = function(e) {
+                var key_code = e.which || e.keyCode;
+                e.preventDefault()
+                switch (key_code) {
+                    case 65: //left arrow key
+                        Keys.left = false;
+                        break;
+                    case 87: //Up arrow key
+                        Keys.up = false;
+                        break;
+                    case 68: //right arrow key
+                        Keys.right = false;
+                        break;
+                    case 83: //down arrow key
+                        Keys.down = false;
+                        break;
+                }
+            };
+            
+            function move () {
+                if (Keys.left) {
+                        moveLeft();
+                }
+                if (Keys.up) {
+                        moveUp();
+                }
+                if (Keys.right) {
+                        moveRight();
+                }
+                if (Keys.down) {
+                        moveDown();
+                }
+            }
+            /*
+            function move () {
+            var key_code = e.which || e.keyCode;
+                switch (key_code) {
+                    case 65: //left arrow key
+                        moveLeft();
+                        break;
+                    case 87: //Up arrow key
+                        moveUp();
+                        break;
+                    case 68: //right arrow key
+                        moveRight();
+                        break;
+                    case 83: //down arrow key
+                        moveDown();
+                        break;
+                }
+            }
+*/
+            function moveLeft() {
+                box.style.left = parseInt(box.style.left) - modifier + "px";
+            }
+            function moveUp() {
+                box.style.top = parseInt(box.style.top) - modifier + "px";
+            }
+            function moveRight() {
+                box.style.left = parseInt(box.style.left) + modifier + "px";
+            }
+            function moveDown() {
+                box.style.top = parseInt(box.style.top) + modifier + "px";
+            }
+
+        window.onload = init;
+
+        setInterval (move, 10);
+
+</script>
+</head>
+<body>
+<img id ="Car" src ="Car.png" alt = "car" />
+</body>
+
 </html>
