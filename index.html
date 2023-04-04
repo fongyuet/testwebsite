@@ -8,7 +8,8 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
+    }
+
 
 </style>
 
@@ -29,6 +30,7 @@ function init() {
     box.style.left = "0px";
     box.style.top = "0px";
     box.style.height = "75px";
+    box.style.transition = "transform 0.5s";
 }
     let modifier = 1;
 
@@ -84,35 +86,30 @@ function init() {
                         moveDown();
                 }
             }
-            /*
-            function move () {
-            var key_code = e.which || e.keyCode;
-                switch (key_code) {
-                    case 65: //left arrow key
-                        moveLeft();
-                        break;
-                    case 87: //Up arrow key
-                        moveUp();
-                        break;
-                    case 68: //right arrow key
-                        moveRight();
-                        break;
-                    case 83: //down arrow key
-                        moveDown();
-                        break;
-                }
-            }
-*/
+
+var curRotation =90;
             function moveLeft() {
+                curRotation = 270;
+                    box.style.transform = 'rotate(270deg)';  
                 box.style.left = parseInt(box.style.left) - modifier + "px";
+                
             }
             function moveUp() {
+                if (curRotation === 270) {
+                box.style.transform = 'rotate(360deg)';
+                }
+                else {
+                    box.style.transform = 'rotate(0deg)';
+                }
                 box.style.top = parseInt(box.style.top) - modifier + "px";
             }
             function moveRight() {
+                box.style.transform = 'rotate(90deg)';
                 box.style.left = parseInt(box.style.left) + modifier + "px";
+                curRotation = 90;
             }
             function moveDown() {
+                box.style.transform = 'rotate(180deg)';
                 box.style.top = parseInt(box.style.top) + modifier + "px";
             }
 
