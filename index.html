@@ -116,13 +116,11 @@ function init() {
                 box.style.top = parseInt(box.style.top) + modifier + "px";
             }
 
-        window.onload = init;
-
         setInterval (move, 10);
 
 </script>
 </head>
-<body>
+<body onload = init()>
 <img id ="Car" src ="Car.png" alt = "car" />
 </body>
 
