@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +12,28 @@
 </head>
 
 <body>
-    Weather
+    Weather:
+    <div id = "demo" style = "font-size: 40px"></div>
+
+    <label for = "input1"> Question: </label>
+    <input type="text" value="" id="input1" onchange="weatherEvent()"/>
+    <input type ="submit" value ="Submit"/>
+    <br>
+    <output type="text" value = "" id="result"></output>
+
+<script type = "text/javascript">
+    let x = numb() + " °C"
+    document.getElementById("demo").innerHTML = x
+
+function numb() {
+    var random = Math.random() * (40 - (-40)) + -40
+    return Math.round(random * 10) / 10
+}
+
+function weatherEvent() {
+    var input1 = document.getElementById("input1").value
+    document.getElementById("result").value = input1
+}
+</script>
     </body>
 </html>
