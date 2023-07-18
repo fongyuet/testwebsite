@@ -35,6 +35,46 @@
 </ul>
 </div>
 
+<div id = "table"></div>
+
+    <script type = "text/javascript">
+        const tbl = document.createElement("table");
+        const tblBody = document.createElement("tbody");
+
+        const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        let y = new Date()
+
+        for (var i = 0; i<4; i++){
+            const row = document.createElement("tr");
+
+            for (var j = 0; j<7; j++){
+                let rand = Math.round((Math.random() * (40 - (-40)) + -40))
+                let day = weekday[(y.getDay() + j)%7]
+                var cell = document.createElement("td");
+                cell.setAttribute("style", "text-align: center")
+                if (i == 0) {
+                    var cell = document.createElement("th");
+                    var cellText = document.createTextNode(day);
+                } else if (i == 1) {
+                    var cellText = document.createTextNode(rand + " °");
+                } else if (i == 2) {
+                    var cellText = document.createTextNode('-');
+                } else {
+                    var cellText = document.createTextNode('-');
+                }
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+            tblBody.appendChild(row);
+        }
+        tbl.appendChild(tblBody);
+        document.body.appendChild(tbl);
+        tbl.setAttribute("style" , "table-layout: fixed; width: 100%");
+        tbl.setAttribute("border", "2");
+        
+    </script>
+
     <script src = "weather.js"></script>
+    <script src = "searchbar.js"></script>
     </body>
 </html>
