@@ -1,0 +1,199 @@
+body {
+    background-color: DarkSalmon;
+  }
+
+  #title {
+    text-align:center; 
+    padding-top: 50px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 40px;
+    font-weight:600
+  }
+
+  #winner {
+    text-align:center; 
+    padding-top: 180px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 16px;
+    font-weight:600
+  }
+
+
+  #title2 {
+    text-align:center; 
+    font-family:cursive;
+    font-size: 30px;
+    font-weight:600;
+    color:rgb(73, 68, 68)
+  }
+  
+  .wrapper {
+    display: flex;
+    height: 700px;
+    justify-content: center;
+    position: relative;
+
+  }
+  
+  .item {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .item p {
+    padding: 20px;
+    margin: 0;
+    background-color: Beige;
+  }
+  .item-parent {
+    position: relative;
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+    color:beige;
+  }
+  .item-parent:after {
+    position: absolute;
+    content: "";
+    width: 25px;
+    height: 2px;
+    left: 0;
+    top: 50%;
+    background-color: #fff;
+    transform: translateX(-100%);
+  }
+  .item-childrens {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+  }
+  .item-child {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .item-child:before {
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    right: 0;
+    top: 50%;
+    transform: translateX(100%);
+    width: 25px;
+    height: 2px;
+  }
+  .item-child:after {
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    right: -25px;
+    height: calc(50% + 22px);
+    width: 2px;
+    top: 50%;
+    
+  }
+  .item-child:last-child:after {
+    transform: translateY(-100%);
+  }
+  .item-child:only-child:after {
+    display: none;
+  }
+
+  #drag {
+    white-space: nowrap;
+    position: absolute;
+    overflow:hidden;
+    background-color: rgb(29, 150, 60);
+    z-index: 10;
+    justify-content: center;
+    padding: 20px;
+    margin: 0;
+    border: solid black
+  }
+  
+  /* Prevents inconsistent highlighting of element while being dragged
+     Copied from https://stackoverflow.com/questions/826782 */
+  .noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+  }
+
+  .wrapper1 {
+    right: 10px
+  }
+  
+
+  .item1 {
+    display: flex;
+    flex-direction: reverse;
+  }
+  .item1 p {
+    padding: 20px;
+    margin: 0;
+    background-color: Beige;
+  }
+  .item1-parent {
+    position: relative;
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+    color:beige;
+  }
+  .item1-parent:after {
+    position: absolute;
+    content: "";
+    width: 25px;
+    height: 2px;
+    right: 0;
+    top: 50%;
+    background-color: #fff;
+    transform: translateX(100%);
+  }
+  .item1-childrens {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+  }
+  .item1-child {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .item1-child:before {
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    left: 0;
+    top: 50%;
+    transform: translateX(-100%);
+    width: 25px;
+    height: 2px;
+  }
+  .item1-child:after {
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    left: -25px;
+    height: calc(50% + 22px);
+    width: 2px;
+    top: 50%;
+    
+  }
+  .item1-child:last-child:after {
+    transform: translateY(-100%);
+  }
+  .item1-child:only-child:after {
+    display: none;
+  }
